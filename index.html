@@ -252,11 +252,7 @@
     <a href="https://www.highcpmgate.com/wtnkeqea?key=d6e9447e25ba80d8e8c9515b933761d5" class="finlink"></a>
 
     <script>
-        function getURLParameter(name) {
-            return decodeURIComponent(
-                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
-            );
-        }
+		
         strAlert = "";
 
         var translation = {
@@ -329,64 +325,9 @@
 
         }
 
-        function getURLParameter(name) {
-            return decodeURI(
-                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
-            );
-        }
     </script>
 
     <script type="text/javascript">
-        var prelandId = getURLParameter('c');
-        var adUnitId = getURLParameter('u');
-
-        function getURLParameter(name) {
-            return decodeURIComponent(
-                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
-            );
-        }
-
-        function checkReferer() {
-            const referrer = document.referrer;
-            const currentUrl = location.href;
-            return referrer && currentUrl !== referrer;
-        }
-
-        function realImpression() {
-
-            const isActionTriggered = sessionStorage.getItem('realImpression')
-            const isReferrer = checkReferer();
-
-            if (!isActionTriggered && isReferrer) {
-                let pixelImg_1 = document.createElement('img');
-                pixelImg_1.src = 'https://elixarco.com/pixel/preland?c=' + prelandId + '&e=1&u=' + adUnitId;
-                console.log(pixelImg_1.src);
-                pixelImg_1.style.display = 'none';
-                document.body.appendChild(pixelImg_1);
-
-                sessionStorage.setItem('realImpression', true)
-                console.log('realImpression');
-            }
-        }
-
-        function prelandAction(evt) {
-
-            evt.preventDefault();
-
-            const isActionTriggered = sessionStorage.getItem('prelandAction')
-            const isReferrer = checkReferer();
-
-            if (!isActionTriggered && isReferrer) {
-                let pixelImg_2 = document.createElement('img');
-                pixelImg_2.src = 'https://elixarco.com/pixel/preland?c=' + prelandId + '&e=2&u=' + adUnitId;
-                console.log(pixelImg_2.src);
-                pixelImg_2.style.display = 'none';
-                document.body.appendChild(pixelImg_2);
-                brAction = null;
-                brAction = function () { }
-                sessionStorage.setItem('prelandAction', true)
-                console.log('prelandAction');
-            }
 
             setTimeout(() => {
                 var thisLink = evt.target.closest('.finlink').href;
@@ -400,26 +341,8 @@
             brAction = function () { }
         }, 4000);
 
-        function brAction() {
-            const isActionTriggered = sessionStorage.getItem('brAction')
-            const isReferrer = checkReferer();
-
-            if (!isActionTriggered && isReferrer) {
-                let pixelImg_3 = document.createElement('img');
-                pixelImg_3.src = 'https://elixarco.com/pixel/preland?c=' + prelandId + '&e=3&u=' + adUnitId;
-                console.log(pixelImg_3.src);
-                pixelImg_3.style.display = 'none';
-                document.body.appendChild(pixelImg_3);
-                console.log('brAction');
-                sessionStorage.setItem('brAction', true)
-            }
-        }
-
-
-
-        function befUnlFunc(e) {
+		function befUnlFunc(e) {
             e.preventDefault();
-            brAction();
             console.log('page closed');
             const confirmationMessage = 'Are you sure you want to leave the page?';
             e.returnValue = confirmationMessage;
@@ -429,25 +352,6 @@
     </script>
 
     <script type="text/javascript">
-        var fin_link = decodeURIComponent(getURLParameter('p1'));
-        var links = document.getElementsByClassName('finlink');
-        for (var i = 0; i < links.length; i++) links[i].setAttribute("href", fin_link);
-
-        for (var j = 0; j < links.length; j++) {
-            links[j].addEventListener('click', function (evt) {
-
-                prelandAction(evt);
-                window.removeEventListener('beforeunload', befUnlFunc);
-
-                window.onbeforeunload = null;
-            });
-        }
-
-        function getURLParameter(name) {
-            return decodeURIComponent(
-                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
-            );
-        }
 
         //Autoredirect
         setTimeout(function () {
@@ -466,9 +370,7 @@
                 };
             } catch (o) { }
         }();
-    </script>
-
-
+	</script>
 
 </body>
 
